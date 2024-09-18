@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { Component } from "react";
 import MarvelService from "../../services/MarvelService";
 
@@ -36,9 +38,6 @@ class CharInfo extends Component {
       .getCharacter(charId)
       .then(this.onCharLoaded)
       .catch(this.onError);
-
-    // specially made a mistake
-    // this.foo.bar = 0;
   };
 
   onCharLoaded = (char) => {
@@ -118,6 +117,10 @@ const View = ({ char }) => {
       </ul>
     </>
   );
+};
+
+CharInfo.propTypes = {
+  charId: PropTypes.number,
 };
 
 export default CharInfo;
